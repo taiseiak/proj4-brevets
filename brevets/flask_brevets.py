@@ -55,10 +55,12 @@ def _calc_times():
     km = request.args.get('km', type=float)
     brevet_km = request.args.get('brevet_km', type=int)
     time = request.args.get('time', type=str)
+
     app.logger.debug("km={}".format(km))
     app.logger.debug("brevet={}".format(brevet_km))
     app.logger.debug("time={}".format(time))
     app.logger.debug("request.args: {}".format(request.args))
+
     try:
         open_time = acp_times.open_time(km, brevet_km, time)
         close_time = acp_times.close_time(km, brevet_km, time)
